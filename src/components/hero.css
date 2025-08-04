@@ -1,0 +1,194 @@
+/* hero.css - Modified for general text style */
+
+/* Base styles for the inner button/link content */
+
+/* src/components/Home/home.css */
+
+.bg-white-gradient-solid {
+  background-image: linear-gradient(to right, #ffffff, #ffffff); /* Pure white */
+}
+
+/* New class for the solid grey gradient text */
+.bg-solid-grey-gradient {
+  background-image: linear-gradient(to right, #8c8c8c, #8c8c8c);
+}
+.bg-ocean-blue-gradient {
+  background-image: linear-gradient(to right, #007cf0, #00dfd8); /* Ocean blue tones */
+}
+.glow-button-inner {
+  font-size: 1.4em; /* Adjust as needed */
+  padding: 0.8em 1.5em; /* Padding for the inner content */
+  border-radius: 0.5em;
+  border: none;
+  background-color: #000; /* Inner background color */
+  color: #8c8c8c; /* MODIFIED: Lighter grey color */
+  cursor: pointer;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7); /* Subtle inner shadow */
+  text-decoration: none; /* For anchor tags */
+  white-space: nowrap; /* Prevent text wrapping */
+
+  /* Flex properties to center text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative; /* Crucial for z-index */
+  z-index: 3; /* Ensures text is on top of all pseudo-elements */
+  transition: all 0.3s ease; /* Smooth transitions for inner button changes */
+  font-weight: 600; /* MODIFIED: Semi-bold font weight */
+}
+
+/* New class for general text styling */
+.hero-general-text {
+  color: #8c8c8c; /* Lighter grey color */
+  font-weight: 600; /* Semi-bold font weight */
+  /* No border-bottom or underline */
+}
+
+/* Wrapper for the glowing effect */
+.glow-button-wrapper {
+  position: relative;
+  padding: 3px;
+  border-radius: 0.9em;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s ease;
+}
+
+/* The ::before pseudo-element for the main rotating glow effect */
+.glow-button-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -40%;
+  width: 180%;
+  height: 180%;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg,
+    #03a9f4,
+    #f441a5,
+    #03a9f4,
+    #f441a5
+  );
+  z-index: 0;
+  filter: blur(0.8em);
+  opacity: 0.7;
+  transition: filter 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              top 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              left 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              height 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: rotateGlow 6s linear infinite;
+  animation-play-state: running;
+}
+
+/* The ::after pseudo-element to create the solid black inner "mask" */
+.glow-button-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: inherit;
+  background-color: #000;
+  z-index: 1;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effects for the wrapper */
+.glow-button-wrapper:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+}
+
+/* Hover effects for the ::before glow element */
+.glow-button-wrapper:hover::before {
+  top: -60%;
+  left: -60%;
+  width: 220%;
+  height: 220%;
+  filter: blur(2.5em);
+  opacity: 1;
+  animation-play-state: running;
+}
+
+/* Active (click) effects for the ::before glow */
+.glow-button-wrapper:active::before {
+  filter: blur(0.8em);
+  opacity: 0.7;
+  transform: scale(0.95);
+}
+
+/* Keyframes for the rotating glow animation */
+@keyframes rotateGlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.glass-image-sharp {
+  width: 440px;
+  height: 440px;
+  backdrop-filter: blur(10px) saturate(160%);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
+  background-color: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: relative;
+  overflow: visible;
+
+}
+/* === Rotating Image with Blue Arcs === */
+.rotating-image-wrapper {
+    position: relative;
+    width: 440px;
+    height: 440px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: transparent;
+    z-index: 1;
+}
+
+.profile-image {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    border: 5px solid #00bfff; /* Blue border */
+    object-fit: cover;
+    z-index: 2;
+    position: relative;
+}
+
+/* New rotating arcs */
+.rotating-arcs {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    z-index: 0;
+    border: 5px solid transparent; /* The base border is transparent */
+    border-top-color: #00bfff; /* Visible arc on the top */
+    border-bottom-color: #00bfff; /* Visible arc on the bottom */
+    animation: rotateArcs 4s linear infinite;
+}
+
+@keyframes rotateArcs {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

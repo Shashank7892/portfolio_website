@@ -1,13 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global body and section background setup */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  
+  /* Set background on the body */
+  /*  */
+  background-image: url('./assets/images/backgrounds/background1.jpg'); /* Adjust the path if needed */
+  background-color: #000; 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  /* background-image:url("../../public/backgrounds/Portfolio-Background.jpg") ;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;#0a192f */
+  
+  /* Make the background fixed so it doesn't scroll with the content */
+  background-attachment: fixed;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Ensure all sections have a transparent background so the body's background is visible */
+section {
+  background-color: transparent; /* Changed from #000 to transparent */
+}
+
+/* Generic Section Title Styles */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 0.5rem;
+}
+
+/* Gradient underline for all section titles */
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, #4a90e2, #a855f7, #ec4899);
+  border-radius: 2px;
+}
+
+/* Responsive section title tweaks */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
 }

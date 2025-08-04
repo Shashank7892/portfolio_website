@@ -1,0 +1,177 @@
+/* --- New animation for sliding in from the left --- */
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* --- New animation for sliding in from the right --- */
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* === Skill Grid Container === */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 0.5rem;
+  row-gap: 1.5rem;
+  justify-items: center;
+  align-items: center;
+}
+
+/* === Individual Skill Card === */
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 140px;
+  height: 140px;
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  /* Resetting opacity for a clean start */
+  opacity: 1; 
+}
+
+/* New class for the initial hidden state */
+.tech-item.initial-hidden {
+  opacity: 0;
+}
+
+/* White outer glow on hover */
+.tech-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.35);
+  /* The opacity is already 1, no need to set it here */
+}
+
+/* Dark violet circular glow behind icon */
+.tech-item::before {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(75, 0, 130, 0.6), transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+/* Show violet glow only on hover */
+.tech-item:hover::before {
+  opacity: 1;
+}
+
+/* === Bloom animation === */
+@keyframes bloom {
+  0% {
+    transform: scale(0.7) rotate(-10deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1) rotate(5deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Trigger bloom on first hover */
+.tech-item.hover {
+  animation: bloom 0.6s ease forwards;
+}
+
+/* === Icon Image === */
+.tech-item img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 0.6rem;
+  object-fit: contain;
+  z-index: 1;
+}
+
+/* === Skill Name === */
+.tech-item span {
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  z-index: 1;
+}
+
+/* Animate the first half of the items from the left */
+.tech-item.animate-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+/* Animate the second half of the items from the right */
+.tech-item.animate-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+/* Add delays for a staggered effect */
+.tech-item:nth-child(5n+1).animate-left, .tech-item:nth-child(5n+1).animate-right { animation-delay: 0.1s; }
+.tech-item:nth-child(5n+2).animate-left, .tech-item:nth-child(5n+2).animate-right { animation-delay: 0.2s; }
+.tech-item:nth-child(5n+3).animate-left, .tech-item:nth-child(5n+3).animate-right { animation-delay: 0.3s; }
+.tech-item:nth-child(5n+4).animate-left, .tech-item:nth-child(5n+4).animate-right { animation-delay: 0.4s; }
+.tech-item:nth-child(5n+5).animate-left, .tech-item:nth-child(5n+5).animate-right { animation-delay: 0.5s; }
+
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  /* Reset delays for mobile to animate from left only */
+  .tech-item:nth-child(2n+1).animate-left, .tech-item:nth-child(2n+1).animate-right { animation-delay: 0.1s; }
+  .tech-item:nth-child(2n+2).animate-left, .tech-item:nth-child(2n+2).animate-right { animation-delay: 0.2s; }
+  
+  /* Animate all items from the left on mobile */
+  .tech-item.animate-left, .tech-item.animate-right { animation: slideInLeft 0.8s ease-out forwards; }
+
+  .tech-item {
+    max-width: 100px;
+    height: 100px;
+    padding: 1rem;
+  }
+
+  .tech-item img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .tech-item span {
+    font-size: 0.8rem;
+  }
+
+  .tech-item::before {
+    width: 80px;
+    height: 80px;
+  }
+}

@@ -1,0 +1,228 @@
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Project Card */
+.project-card {
+  background-color: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(40px);              /* <-- added this line */
+  -webkit-backdrop-filter: blur(16px);      /* <-- for Safari */
+  border-radius: 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
+/* === New Glassy Layer Wrapper (layer 2) === */
+.project-image-outer {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Glassy image background layer (layer 2) */
+.project-image-wrap {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto 1.5rem auto;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Inner image (layer 3) */
+.project-image-wrap img {
+  width: 95%;
+  height: 95%;
+  object-fit: cover;
+  border-radius: 0.8rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover .project-image-wrap img {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(148, 0, 211, 0.3);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.4);
+}
+
+/* Floating-style Image Wrap */
+.project-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  background: rgba(255, 255, 255, 0.06); /* Light frosted glass effect */
+  backdrop-filter: blur(12px);           /* Blur for glass effect */
+  -webkit-backdrop-filter: blur(12px);   /* For Safari */
+  border-radius: 1rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-image-wrap {
+    aspect-ratio: 16 / 9;
+    height: auto;
+}
+
+
+.project-image-wrap img {
+    width: 85%;       /* Image now takes 85% of wrapper's width */
+    height: 85%;      /* Equal spacing top/bottom */
+    object-fit: cover;
+    border-radius: 0.8rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.project-card:hover .project-image-wrap img {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(148, 0, 211, 0.4);
+}
+
+/* Project Details */
+.project-details {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #fff;
+}
+
+.project-description {
+    font-size: 0.95rem;
+    color: #ccc;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+/* Links */
+.project-links {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+.project-links {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.project-link {
+    display: flex;
+    align-items: center;
+    color: #ffffff; /* Changed from #4a90e2 to white */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.2s ease-in-out;
+}
+
+.project-link:hover {
+    color: #a855f7; /* Keep hover color for visual feedback */
+}
+
+.github-icon {
+    font-size: 1.5em;
+    color: #ffffff; /* Changed from #4a90e2 to white */
+    margin-right: 0.5rem;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .project-title {
+        font-size: 1.4rem;
+    }
+
+    .project-description {
+        font-size: 0.9rem;
+    }
+
+    .project-links {
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 0.75rem;
+    }
+}
+/* Add these styles to the END of your existing src/components/projects.css file */
+
+/* Show More/Less Button Container Styles */
+.show-more-less-container {
+    text-align: right;
+    margin-top: 3rem; /* Space above the button */
+    padding-right: 10rem;
+    /* If you want buttons side-by-side (e.g., if you had both always visible): */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* gap: 1rem; */
+}
+
+/* Common style for both Show More and Show Less buttons */
+.show-more-button {
+    background: linear-gradient(to right, #4a90e2, #a855f7); /* Gradient background */
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.show-more-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    opacity: 0.9;
+}
+
+/* Responsive adjustments for the button */
+@media (max-width: 768px) {
+    .show-more-button {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
