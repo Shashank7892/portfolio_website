@@ -4,15 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Global body and section background setup for larger screens (default) */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', 'Montserrat', sans-serif;
-  color: #fff;
-  
+/* Global background settings for larger screens (default) */
+html {
   /* Desktop background settings */
-  background-color: #000; 
+  background-color: #000;
   background-image: url('./assets/images/backgrounds/background1.jpg'); /* Desktop-specific image */
   background-size: cover;
   background-position: center;
@@ -20,11 +15,22 @@ body {
   
   /* Use fixed attachment for desktop to create a parallax-like effect */
   background-attachment: fixed;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+  color: #fff;
   
+  /* The body's background must be transparent for the html background to show */
+  background-color: transparent; 
+  
+  /* Set a minimum height to ensure scrolling */
   min-height: 100vh;
 }
 
-/* Ensure all sections have a transparent background so the body's background is visible */
+/* Ensure all sections have a transparent background */
 section {
   background-color: transparent;
   padding: 2rem 1rem; 
@@ -58,7 +64,7 @@ section {
 
 /* Media query for mobile and tablet devices */
 @media (max-width: 768px) {
-  body {
+  html {
     /* Set a different, mobile-optimized background image */
     background-image: url('./assets/images/backgrounds/mobile_background.jpg'); 
     
