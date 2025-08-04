@@ -13,7 +13,6 @@
   overflow: hidden;
 }
 
-/* Removed unwanted circles */
 .about-container::before,
 .about-container::after {
   display: none;
@@ -69,7 +68,6 @@
   z-index: 2;
 }
 
-/* Wave Light Animation */
 .wave-light {
   content: '';
   position: absolute;
@@ -99,32 +97,6 @@
   }
 }
 
-/* Responsive Text Alignment */
-@media (max-width: 767px) {
-  .about-title {
-    text-align: center;
-  }
-
-  .about-card {
-    padding: 1.5rem;
-  }
-
-  .about-card-title {
-    font-size: 1.6rem;
-  }
-
-  .typewriter-text {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-title {
-    font-size: 2em;
-  }
-}
-
-
 .about-image {
   width: 500px;
   height: 500px;
@@ -145,5 +117,78 @@
   }
   100% {
     transform: translateY(0);
+  }
+}
+
+/* ====================
+   MOBILE RESPONSIVENESS
+   ==================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .about-image {
+    width: 350px;
+    height: 350px;
+  }
+
+  .about-card-title {
+    font-size: 1.8rem;
+  }
+
+  .typewriter-text {
+    font-size: 1.05rem;
+    min-height: auto;
+  }
+}
+
+/* Phones */
+@media (max-width: 767px) {
+  .about-container {
+    padding: 3rem 1rem;
+  }
+
+  .about-glow-wrapper {
+    box-shadow: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .about-card {
+    padding: 1.25rem;
+    min-height: auto;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-card-title {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .typewriter-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 0 0.5rem;
+  }
+
+  .about-image {
+    width: 260px;
+    height: 260px;
+    margin: 1rem auto;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .about-card-title {
+    font-size: 1.4rem;
+  }
+
+  .typewriter-text {
+    font-size: 0.95rem;
+  }
+
+  .about-image {
+    width: 200px;
+    height: 200px;
   }
 }

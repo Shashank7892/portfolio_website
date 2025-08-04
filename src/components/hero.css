@@ -192,3 +192,46 @@
         transform: rotate(360deg);
     }
 }
+
+@media (max-width: 768px) {
+  .glass-image-sharp {
+    width: 280px;
+    height: 280px;
+    padding: 0.5rem;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .rotating-image-wrapper {
+    width: 280px;
+    height: 280px;
+  }
+
+  .profile-image {
+    width: 240px;
+    height: 240px;
+    border: 4px solid #00bfff;
+  }
+
+  .rotating-arcs {
+    border-width: 4px;
+  }
+
+  .glow-button-inner {
+    font-size: 1em;
+    padding: 0.6em 1em;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .glow-button-wrapper {
+    border-radius: 0.7em;
+    padding: 2px;
+  }
+
+  .hero-general-text {
+    font-size: 0.95em;
+    text-align: center;
+    line-height: 1.4;
+  }
+}

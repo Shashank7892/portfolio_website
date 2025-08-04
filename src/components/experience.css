@@ -1,6 +1,4 @@
-/* src/components/experience.css */
-
-/* --- Main content wrapper for side-by-side layout --- */
+/* === Base Layout === */
 .experience-main-content {
   display: flex;
   flex-direction: column;
@@ -10,7 +8,7 @@
   padding: 1rem;
 }
 
-/* --- Skill Icons Grid --- */
+/* === Skill Icons Grid === */
 .experience-skills-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -59,7 +57,7 @@
   color: #a0aec0;
 }
 
-/* --- Experience Cards Grid --- */
+/* === Experience Cards Grid === */
 .experience-cards-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -90,7 +88,7 @@
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
 }
 
-/* --- Header inside cards --- */
+/* === Card Header === */
 .company-header {
   display: flex;
   align-items: center;
@@ -132,7 +130,42 @@
   line-height: 1.4;
 }
 
-/* Responsive Adjustments */
+/* === Glow/Animation === */
+.pop-up {
+  transform: scale(1.2) translateY(-10px);
+  filter: grayscale(0%);
+  box-shadow: 0 0 15px rgba(0, 200, 255, 0.5);
+  border-radius: 50%;
+}
+
+.experience-card.wave-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.experience-card.wave-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0.1) 0%,
+    rgba(255,255,255,0.5) 50%,
+    rgba(255,255,255,0.1) 100%
+  );
+  transform: skewX(-25deg);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -75%; }
+  100% { left: 125%; }
+}
+
+/* === Responsive: Tablets === */
 @media (min-width: 768px) {
   .experience-main-content {
     flex-direction: row;
@@ -148,15 +181,22 @@
   }
 }
 
+/* === Responsive: Mobiles and Small Devices === */
 @media (max-width: 767px) {
+  .experience-main-content {
+    flex-direction: column;
+    padding: 1rem 0.75rem;
+    gap: 2rem;
+  }
+
   .experience-skills-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
 
   .skill-icon-card {
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
   }
 
   .skill-icon {
@@ -165,47 +205,64 @@
   }
 
   .skill-name {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+  }
+
+  .experience-card {
+    padding: 1.25rem;
   }
 
   .role-company {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
+  }
+
+  .dates {
+    font-size: 0.85rem;
   }
 
   .achievements-list {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    margin-left: 1rem;
+  }
+
+  .company-logo {
+    width: 32px;
+    height: 32px;
+    margin-right: 0.75rem;
   }
 }
 
-/* New CSS for the pop-up animation */
-.pop-up {
-  transform: scale(1.2) translateY(-10px);
-  filter: grayscale(0%);
-  box-shadow: 0 0 15px rgba(0, 200, 255, 0.5); /* A more generic glow */
-  border-radius: 50%;
-}
-.experience-card.wave-effect {
-  position: relative;
-  overflow: hidden;
-}
-
-.experience-card.wave-effect::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(120deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.1) 100%);
-  transform: skewX(-25deg);
-  animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-  0% {
-    left: -75%;
+/* === Extra Small Devices (≤480px) === */
+@media (max-width: 480px) {
+  .experience-skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
   }
-  100% {
-    left: 125%;
+
+  .skill-icon-card {
+    width: 70px;
+    height: 70px;
+  }
+
+  .skill-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .skill-name {
+    font-size: 0.7rem;
+  }
+
+  .role-company {
+    font-size: 1.1rem;
+  }
+
+  .achievements-list {
+    font-size: 0.8rem;
+  }
+
+  .company-logo {
+    width: 28px;
+    height: 28px;
   }
 }

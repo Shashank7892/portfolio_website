@@ -226,3 +226,75 @@
         font-size: 0.9rem;
     }
 }
+
+/* ============================ */
+/* === Enhanced Mobile Styles === */
+/* ============================ */
+@media (max-width: 768px) {
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    padding: 0 1rem;
+  }
+
+  .project-card {
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .project-image-outer {
+    padding: 0.75rem;
+  }
+
+  .project-image-wrap {
+    width: 100%;
+    padding: 0.4rem;
+    border-radius: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .project-image-wrap img {
+    width: 90%;
+    height: auto;
+  }
+
+  .project-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .project-description {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+  }
+
+  .project-links {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-top: 0.75rem;
+    gap: 1rem;
+  }
+
+  .project-link {
+    font-size: 0.85rem;
+  }
+
+  .github-icon {
+    font-size: 1.3em;
+  }
+
+  .show-more-less-container {
+    padding-right: 1rem;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .show-more-button {
+    width: 100%;
+    padding: 0.9rem;
+    font-size: 0.95rem;
+  }
+}
+
