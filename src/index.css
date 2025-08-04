@@ -4,33 +4,30 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Global body and section background setup */
+/* Global body and section background setup for larger screens (default) */
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', 'Montserrat', sans-serif;
   color: #fff;
   
-  /* Set background on the body */
-  /*  */
-  background-image: url('./assets/images/backgrounds/background1.jpg'); /* Adjust the path if needed */
+  /* Desktop background settings */
   background-color: #000; 
+  background-image: url('./assets/images/backgrounds/background1.jpg'); /* Desktop-specific image */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh;
-  /* background-image:url("../../public/backgrounds/Portfolio-Background.jpg") ;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;#0a192f */
   
-  /* Make the background fixed so it doesn't scroll with the content */
+  /* Use fixed attachment for desktop to create a parallax-like effect */
   background-attachment: fixed;
+  
+  min-height: 100vh;
 }
 
 /* Ensure all sections have a transparent background so the body's background is visible */
 section {
-  background-color: transparent; /* Changed from #000 to transparent */
+  background-color: transparent;
+  padding: 2rem 1rem; 
 }
 
 /* Generic Section Title Styles */
@@ -39,13 +36,11 @@ section {
   font-weight: bold;
   color: #fff;
   text-align: center;
-  margin-bottom: 3rem;
-  position: relative;
-  display: block;
+  margin: 0 auto 3rem; 
+  display: block; 
   width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
   padding-bottom: 0.5rem;
+  position: relative;
 }
 
 /* Gradient underline for all section titles */
@@ -61,9 +56,30 @@ section {
   border-radius: 2px;
 }
 
-/* Responsive section title tweaks */
+/* Media query for mobile and tablet devices */
 @media (max-width: 768px) {
+  body {
+    /* Set a different, mobile-optimized background image */
+    background-image: url('./assets/images/backgrounds/mobile_background.jpg'); 
+    
+    /* Change the background behavior for mobile to prevent glitches and improve performance */
+    background-attachment: scroll;
+    
+    /* Ensure the mobile background also covers the screen */
+    background-size: cover; 
+  }
+  
   .section-title {
     font-size: 2rem;
+    margin-bottom: 2rem;
+    width: 90%; 
+  }
+}
+
+/* Optional: Additional media query for very small mobile screens */
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.5rem;
+    word-break: break-word; 
   }
 }
