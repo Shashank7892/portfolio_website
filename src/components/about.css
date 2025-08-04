@@ -154,9 +154,11 @@
 
   .about-card {
     padding: 1.25rem;
-    min-height: auto;
-    align-items: center;
-    text-align: center;
+  min-height: 20em;
+  max-height: 20em;
+  align-items: center;
+  text-align: center;
+  overflow-y: auto; 
   }
 
   .about-card-title {
@@ -168,6 +170,11 @@
     font-size: 1rem;
     line-height: 1.5;
     padding: 0 0.5rem;
+    display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
   }
 
   .about-image {
