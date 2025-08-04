@@ -54,7 +54,7 @@ const Projects = () => {
       description: 'Developed a scalable e-commerce backend using Java and Spring Boot, ensuring high maintainability & Leveraged Spring Data JPA to effectively manage all database entities within a PostgreSQL database',
       githubLink: 'https://github.com/Shashank7892/Ecommerce-application_spring',
     },
-  ], [mydriveimg, foodimage, quizimg, ecomimg]);
+  ], []);
 
   const handleShowMore = () => {
     setVisibleProjects(projectsData.length);
