@@ -118,7 +118,7 @@ const Hero = () => {
     );
 
   return (
-    <section id="home" className="text-white min-h-[calc(100vh-64px)] flex items-center justify-center py-16 px-4">
+    <section id="home" className="section-over-background text-white min-h-[calc(100vh-64px)] flex items-center justify-center py-16 px-4">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         {/* Animated Text Section */}
         <motion.div

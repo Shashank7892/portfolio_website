@@ -44,7 +44,7 @@ const ContactMe = () => {
   };
 
   return (
-    <section id="contact">
+    <section id="contact" className="section-over-background">
       <h2 className="section-title" data-aos="fade-up">Contact Me</h2>
       <p className="contact-subtext" data-aos="fade-up" data-aos-delay="100">
         Got a question? Send me a message, and I'll get back to you soon.

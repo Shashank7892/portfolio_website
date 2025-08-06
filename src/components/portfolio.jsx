@@ -80,7 +80,7 @@ const Portfolio = () => {
   }, []);
 
   return (
-    <section id="skills">
+    <section id="skills" className="section-over-background">
       <h2 className="section-title">My Technical Skills</h2>
       <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
         Explore my proficiency across various programming languages, web technologies, databases, and development tools.

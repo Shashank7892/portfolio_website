@@ -4,52 +4,75 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Global background settings for larger screens (default) */
+/* === Remove old background from html === */
 html {
-  /* Desktop background settings */
   background-color: #000;
-  background-image: url('./assets/images/backgrounds/background1.jpg'); /* Desktop-specific image */
+  background-image: none;
+  background-attachment: scroll;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* === Global full-screen fixed background layer === */
+.fixed-background-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-image: url('./assets/images/backgrounds/background1.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  
-  /* Use fixed attachment for desktop to create a parallax-like effect */
-  background-attachment: fixed;
+  background-attachment: scroll; /* ensures mobile performance */
+  pointer-events: none; /* so it doesn't block interaction */
 }
 
+/* === Mobile-specific background override === */
+@media (max-width: 768px) {
+  .fixed-background-layer {
+    background-image: url('./assets/images/backgrounds/mobile_background.jpg');
+  }
+}
+
+/* === Section content should float above background === */
+.section-over-background {
+  position: relative;
+  z-index: 1;
+  background-color: transparent;
+}
+
+/* === Base body styles === */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', 'Montserrat', sans-serif;
   color: #fff;
-  
-  /* The body's background must be transparent for the html background to show */
   background-color: transparent; 
-  
-  /* Set a minimum height to ensure scrolling */
   min-height: 100vh;
 }
 
-/* Ensure all sections have a transparent background */
+/* === Transparent section layout === */
 section {
   background-color: transparent;
-  padding: 2rem 1rem; 
+  padding: 2rem 1rem;
 }
 
-/* Generic Section Title Styles */
+/* === Section Title Styling === */
 .section-title {
   font-size: 2.5rem;
   font-weight: bold;
   color: #fff;
   text-align: center;
-  margin: 0 auto 3rem; 
-  display: block; 
+  margin: 0 auto 3rem;
+  display: block;
   width: fit-content;
   padding-bottom: 0.5rem;
   position: relative;
 }
 
-/* Gradient underline for all section titles */
+/* === Gradient underline for section titles === */
 .section-title::after {
   content: '';
   position: absolute;
@@ -62,30 +85,18 @@ section {
   border-radius: 2px;
 }
 
-/* Media query for mobile and tablet devices */
+/* === Responsive tweaks === */
 @media (max-width: 768px) {
-  html {
-    /* Set a different, mobile-optimized background image */
-    background-image: url('./assets/images/backgrounds/mobile_background.jpg'); 
-    
-    /* Change the background behavior for mobile to prevent glitches and improve performance */
-    background-attachment: scroll;
-    
-    /* Ensure the mobile background also covers the screen */
-    background-size: cover; 
-  }
-  
   .section-title {
     font-size: 2rem;
     margin-bottom: 2rem;
-    width: 90%; 
+    width: 90%;
   }
 }
 
-/* Optional: Additional media query for very small mobile screens */
 @media (max-width: 480px) {
   .section-title {
     font-size: 1.5rem;
-    word-break: break-word; 
+    word-break: break-word;
   }
 }

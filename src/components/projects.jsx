@@ -65,7 +65,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects">
+    <section id="projects" className="section-over-background">
       <h2 className="section-title" data-aos="fade-up">PROJECTS</h2>
 
       <div className="projects-grid">

@@ -44,7 +44,7 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about" className="about-container">
+    <section id="about" className="about-container section-over-background">
       <h2 className="section-title" data-aos="fade-up">ABOUT ME</h2>
 
       <div className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center px-4 md:px-8 lg:px-16">

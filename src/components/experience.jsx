@@ -70,7 +70,7 @@ const Experience = () => {
 
 
   return (
-    <section id="experience">
+    <section id="experience" className="section-over-background">
       <h2 className="section-title" data-aos="fade-up">EXPERIENCE</h2>
 
       <div className="experience-main-content">
